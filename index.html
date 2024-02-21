@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EnchantJs Game</title>
+        <script src="enchant/build/enchant.js"></script>
+    <script src="main.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+    </style>
+</head>
+<body>
+<audio id="backgroundMusic" preload="auto" loop>
+    <source src="images/backgroundMusic.mp3" type="audio/mp3">
+</audio>
+<audio id="gameBonus" preload="auto">
+    <source src="images/gameBonus.wav" type="audio/mp3">
+</audio>
+<audio id="gameOver" preload="auto">
+    <source src="images/gameOver.mp3" type="audio/mp3">
+</audio>
+<audio id="aha" preload="auto">
+    <source src="images/aha.mp3" type="audio/mp3">
+</audio>
+</body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>No Internet Dinosaur Game</title>-->
+<!--    <script src="../enchant/build/enchant.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<script>-->
+<!--    enchant();-->
+
+<!--    window.onload = function() {-->
+<!--        var game = new Game(640, 320);-->
+<!--        game.preload('images/chara1.png');-->
+<!--        game.rootScene.backgroundColor="yellow";-->
+<!--        game.onload = function() {-->
+<!--            var Dinosaur = Class.create(Sprite, {-->
+<!--                initialize: function() {-->
+<!--                    Sprite.call(this, 32, 32);-->
+<!--                    this.image = game.assets['images/chara1.png'];-->
+<!--                    this.frame = 4;-->
+<!--                    this.x = 100;-->
+<!--                    this.y = 120;-->
+<!--                    game.rootScene.addChild(this);-->
+<!--                },-->
+<!--                // jump: function() {-->
+<!--                //     if (!this.jumping) {-->
+<!--                //         this.jumping = true;-->
+<!--                //         var duration = 10; // adjust this for jump height-->
+<!--                //         var height = 80; // adjust this for jump height-->
+<!--                //         this.tl.moveBy(0, -height, duration, enchant.Easing.QUAD_EASEOUT)-->
+<!--                //             .moveBy(0, height, duration, enchant.Easing.QUAD_EASEIN)-->
+<!--                //             .then(function() {-->
+<!--                //                 this.jumping = false;-->
+<!--                //             });-->
+<!--                //     }-->
+<!--                // }-->
+<!--            });-->
+
+<!--            var dino = new Dinosaur();-->
+
+<!--            // game.rootScene.addEventListener('touchstart', function() {-->
+<!--            //     dino.jump();-->
+<!--            // });-->
+
+<!--            game.rootScene.addEventListener('enterframe', function() {-->
+<!--                if (Math.random() < 0.02) {-->
+<!--                    var cactus = new Sprite(32, 32);-->
+<!--                    cactus.image = game.assets['images/chara1.png'];-->
+<!--                    cactus.frame = 6;-->
+<!--                    cactus.x = game.width;-->
+<!--                    cactus.y = 120;-->
+<!--                    cactus.addEventListener('enterframe', function() {-->
+<!--                        if (cactus.intersect(dino)) {-->
+<!--                            game.stop();-->
+<!--                            alert('Game Over!');-->
+<!--                        }-->
+<!--                        if (cactus.x < -cactus.width) {-->
+<!--                            game.rootScene.removeChild(cactus);-->
+<!--                        }-->
+<!--                        cactus.x -= 5;-->
+<!--                    });-->
+<!--                    game.rootScene.addChild(cactus);-->
+<!--                }-->
+<!--            });-->
+<!--        };-->
+
+<!--        game.start();-->
+<!--    };-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
