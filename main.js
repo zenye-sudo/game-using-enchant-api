@@ -21,6 +21,15 @@ window.onload = function () {
                 start_scene_sprit.x = game.width / 2 - start_scene_sprit.width / 2;
                 start_scene_sprit.y = game.height / 2 - start_scene_sprit.height / 2;
                 this.addChild(start_scene_sprit);
+
+                var label=new Label("Enter to continue");
+                label.width = 128;
+                label.height = 64;
+                // label.font = "20px 'Arial'";
+                label.color = "white";
+                label.x=game.width/2-label.width/2;
+                label.y=(game.height / 2 - label.height / 2 ) +  (start_scene_sprit.height+10);
+                this.addChild(label);
             }
         });
         // Game start scene end
@@ -90,13 +99,18 @@ window.onload = function () {
         var startScene = new StartScene();
         game.pushScene(startScene);
         // Handle click events to start the game
+        document.addEventListener('keydown', function(event) {
+            var keyPressed = event.key || event.keyCode;
+            if(keyPressed=="Enter"){
+                game.removeScene(startScene);
+                document.getElementById("backgroundMusic").play();
+            }
+        });
         startScene.addEventListener(Event.TOUCH_START, function () {
-            // Start the game
-            // game.pushScene(mainScene);
-            // isGameRunning = true;
             // Remove the start scene
             game.removeScene(startScene);
             document.getElementById("backgroundMusic").play();
+
         });
         //for game start scene end
         //for initial object start
@@ -170,6 +184,12 @@ window.onload = function () {
                         document.getElementById("gameOver").play();
                         game.pushScene(gameOverScene);
                         document.getElementById("backgroundMusic").pause();
+                        document.addEventListener('keydown', function(event) {
+                            var keyPressed = event.key || event.keyCode;
+                            if(keyPressed=="Enter"){
+                                location.reload();
+                            }
+                        });
 
                     }
                     if (cactus.x < -cactus.width) {
